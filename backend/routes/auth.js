@@ -743,6 +743,11 @@ async function getMessageCentralToken() {
     const password = process.env.MESSAGECENTRAL_PASSWORD;
     if (!customerId || !password) return null;
 
+    // If the provided password is a long-lived JWT token, return it directly
+    if (password.startsWith('eyJ')) {
+        return password;
+    }
+
     if (global.mcToken && global.mcTokenExpires > Date.now()) {
         return global.mcToken;
     }
@@ -793,6 +798,8 @@ router.post('/send-otp', async (req, res) => {
                     global.otpStore[value] = { verificationId, type: 'sms', expires: Date.now() + 5 * 60 * 1000 };
                 } else if (response.data && response.data.responseCode == 506) {
                     return res.status(429).json({ error: 'OTP request already exists. Please wait a minute and try again.' });
+                } else if (response.data && response.data.responseCode == 508) {
+                    return res.status(503).json({ error: 'SMS service temporarily unavailable. Please login with your password instead.' });
                 } else {
                     throw new Error(JSON.stringify(response.data));
                 }

@@ -6,13 +6,17 @@ async function testMC() {
     try {
         const customerId = process.env.MESSAGECENTRAL_CUSTOMER_ID;
         const password = process.env.MESSAGECENTRAL_PASSWORD;
-        const key = Buffer.from(password).toString('base64');
-        const authUrl = `https://cpaas.messagecentral.com/auth/v1/authentication/token?country=IN&customerId=${customerId}&key=${key}&scope=NEW`;
-        
-        console.log('Authenticating...');
-        const authRes = await axios.get(authUrl);
-        const token = authRes.data.token;
-        console.log('Got token:', token ? 'yes' : 'no');
+        let token = password;
+        if (!password.startsWith('eyJ')) {
+            const key = Buffer.from(password).toString('base64');
+            const authUrl = `https://cpaas.messagecentral.com/auth/v1/authentication/token?country=IN&customerId=${customerId}&key=${key}&scope=NEW`;
+            console.log('Authenticating...');
+            const authRes = await axios.get(authUrl);
+            token = authRes.data.token;
+            console.log('Got token:', token ? 'yes' : 'no');
+        } else {
+            console.log('Using JWT token directly');
+        }
 
         const value = "9942277523"; // the number in the screenshot
         const url = `https://cpaas.messagecentral.com/verification/v3/send?countryCode=91&customerId=${customerId}&flowType=SMS&mobileNumber=${value}`;
