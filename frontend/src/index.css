@@ -29,8 +29,11 @@
 
   /* Spacing & Layout */
   --max-width: 1280px;
-  --header-height: 100px;
+  --header-height: 80px;
+  --bottom-nav-height: 64px;
   --radius: 12px;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-top: env(safe-area-inset-top, 0px);
 }
 
 * {
@@ -38,6 +41,41 @@
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --header-height: 65px;
+  }
+
+  .App {
+    padding-bottom: calc(var(--bottom-nav-height) + var(--safe-bottom) + 10px);
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .btn {
+    min-height: 44px;
+    font-size: 0.95rem;
+  }
+
+  input, select, textarea {
+    font-size: 16px !important; /* Prevents auto-zoom on iOS/Android */
+    min-height: 44px;
+  }
+
+  .hide-on-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .hide-on-desktop, .mobile-only {
+    display: none !important;
+  }
 }
 
 

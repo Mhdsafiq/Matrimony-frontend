@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Sri Mayan Matrimony</string>
+    <string name="title_activity_main">Sri Mayan Matrimony</string>
+    <string name="package_name">com.srimayan.matrimony</string>
+    <string name="custom_url_scheme">com.srimayan.matrimony</string>
+</resources>

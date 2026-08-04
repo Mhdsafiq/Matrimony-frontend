@@ -1,0 +1,13 @@
+{
+  "appId": "com.srimayan.matrimony",
+  "appName": "Sri Mayan Matrimony",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "http",
+    "cleartext": true
+  },
+  "android": {
+    "allowMixedContent": true,
+    "captureInput": true
+  }
+}

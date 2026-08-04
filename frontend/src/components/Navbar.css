@@ -135,13 +135,22 @@
 }
 
 @media (max-width: 768px) {
-
     .nav-links {
         display: none;
     }
 
     .landing-nav-actions {
-        display: none;
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .nav-login-link {
+        font-size: 0.9rem;
+    }
+
+    .nav-register-btn {
+        padding: 0.4rem 0.9rem;
+        font-size: 0.85rem;
     }
 
     .mobile-toggle {
@@ -153,22 +162,22 @@
     }
 
     .navbar {
-        padding: 0.8rem 0;
+        padding: 0.6rem 0;
     }
 }
 
 @media (max-width: 480px) {
     .logo-img {
-        width: 100px;
+        width: 110px;
     }
 
     .mobile-menu {
-        padding: 1.5rem 1rem;
-        gap: 1rem;
+        padding: 1.2rem 1rem;
+        gap: 0.8rem;
     }
 
     .mobile-menu a {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
 }
 

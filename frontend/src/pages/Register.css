@@ -17,6 +17,15 @@
     background-attachment: fixed;
 }
 
+@media (max-width: 768px) {
+    .register-container {
+        padding: 5rem 0.75rem 2rem;
+    }
+    .register-card {
+        padding: 1.5rem 1rem;
+    }
+}
+
 .register-content-wrapper {
     display: flex;
     flex-direction: column;

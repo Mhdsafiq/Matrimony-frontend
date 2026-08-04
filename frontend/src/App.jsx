@@ -14,6 +14,7 @@ import Settings from './pages/Settings';
 import Chat from './pages/Chat';
 import ProtectedRoute from './components/ProtectedRoute';
 import GlobalModal from './components/GlobalModal';
+import BottomNav from './components/BottomNav';
 import './index.css';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
     <Router>
       <div className="App">
         <GlobalModal />
+        <BottomNav />
         <Routes>
           {/* Public Routes */}
           <Route path="/" element={<Register />} />

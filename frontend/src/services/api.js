@@ -1,5 +1,14 @@
 // API Service Layer - centralizes all backend API calls
-const API_BASE = '/api';
+const getApiBaseUrl = () => {
+    if (import.meta.env.VITE_API_URL) return import.meta.env.VITE_API_URL;
+    // On native mobile APK or Capacitor container, point to the computer's local IP address
+    if (window.Capacitor || window.location.protocol === 'capacitor:' || window.location.hostname === 'localhost') {
+        return 'http://192.168.1.11:5000/api';
+    }
+    return '/api';
+};
+
+const API_BASE = getApiBaseUrl();
 
 // Global memory cache to provide instantaneous load times across page navigations
 export const globalCache = {

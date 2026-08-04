@@ -404,7 +404,7 @@
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
     .search-container {
-        padding: 100px 10px 20px;
+        padding: 70px 10px 20px;
     }
 
     .search-tabs {

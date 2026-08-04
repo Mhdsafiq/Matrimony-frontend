@@ -402,8 +402,8 @@
 @media (max-width: 900px) {
     .dashboard-container {
         flex-direction: column;
-        padding: 15px;
-        margin-top: 90px;
+        padding: 15px 12px;
+        margin-top: 70px;
     }
 
     .dashboard-sidebar {
